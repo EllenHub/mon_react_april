@@ -1,33 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState} from "react";
-import {getUsers, getUser} from "./components/services/Api";
-import Users1 from "./components/users1/Users1";
-import UserDetails from "./components/users1/UserDetails";
+import PostDetails from "./components/users1/PostDetails";
+import Posts from "./components/users1/Posts";
+import {getPost, getPosts} from "./components/services/Api";
 
-// import Users1 from "./components/users/Users1";
 
 export default function App() {
-    let [users, setUsers] = useState([])
-  let [userDetails, setUserDetails] = useState(null)
-    useEffect( () => {
-        getUsers().then (response => {
-         setUsers(response.data)
-        })
-    },[])
- function selectUsers(id) {
-        console.log(id)
-        getUser(id).then(({data}) => {
-            setUserDetails(data)
 
-        })
- }
+    let [posts, setPosts] = useState([])
+    let [postDetails, setPostDetails] = useState(null)
+    useEffect(() => {
+        getPosts().then(response => {
+            setPosts(response.data)
+        } )
+    },[])
+    function selectPost(id) {
+        console.log(id)
+        getPost(id).then(({data}) =>
+        setPostDetails (data))
+    }
     return (
         <div>
-            <Users1 items = {users} selectUsers = {selectUsers}/>
+            <Posts items = {posts} selectPost = {selectPost}/>
             <hr/>
+
             {
-                userDetails && <UserDetails item={userDetails}/>
+                postDetails && <PostDetails item = {postDetails}/>
             }
         </div>
 )
