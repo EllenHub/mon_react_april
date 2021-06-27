@@ -1,31 +1,19 @@
 import {useEffect, useState} from "react";
-import './Users.css'
+import {getUsers} from "../services/Service";
+import User from "./User";
 
 export default function Users() {
-
-    let [postState, setPostState] = useState([])
-    // let state = useState([])
-    // let postState = state[0];
-    // let setPostState = state[1]
-
+    let [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(value => {
-                console.log(value);
-                setPostState(value);
-            });
+        getUsers().then(({data}) => {
+            setUsers(data)
+        })
     },[])
-
-
     return (
-        <div >
+        <div>
             {
-            postState.map(value => <div>
-                <div className={'point'}>{value.id} - {value.title}</div>
-            </div>)
+                users.map(value => <User key = {value.id} id={ value.id} name ={value.name}/>)
             }
-
         </div>
 )
 }
