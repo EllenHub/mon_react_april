@@ -11,6 +11,7 @@ export default function Posts({items, id}) {
         })
     },[])
 
+
     const filter = posts.filter(value => value.userId === id)
     return (
         <div>
