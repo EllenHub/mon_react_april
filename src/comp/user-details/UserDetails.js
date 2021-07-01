@@ -12,6 +12,7 @@ export default function UserDetails(props) {
         <div>
             {user.id} {user.name}
 
+
         </div>
 )
 }
