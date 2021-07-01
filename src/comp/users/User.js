@@ -1,25 +1,15 @@
-import {useState} from "react";
-import {getUserPosts} from "../services/Api";
-import UserPost from "./UserPost";
+import {Link, Route} from "react-router-dom";
+import UserDetails from "../user-details/UserDetails";
+import PostDetail from "../posts/PostDetail";
 
 export default function User({item}) {
-let [ toggle, setTggle] = useState(false)
-    let [usersPosts, setUserPosts] = useState([])
-    let buttonName = toggle ? 'hide': 'show'
-     const click =() => {
-    setTggle(!toggle)
-         getUserPosts(item.id).then(({data}) => {
-             setUserPosts(data)
-         })
-
-    }
-
     return (
         <div>
-            <h3>{item.id} {item.name}  <button onClick={click}> {buttonName}</button></h3>
-            {
-                toggle && usersPosts.map(value => <UserPost item ={value}/>)
+            {item.id} {item.name} - <Link to={'/users/' + item.id }> details</Link>
+            {/*{item.id} {item.name} - <Link to={*/}
+            {/*    {pathname: '/users/' + item.id, state: item}*/}
+            {/*}> details</Link>*/}
 
-            }        </div>
+        </div>
 )
 }
