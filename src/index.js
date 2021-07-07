@@ -7,14 +7,15 @@ import {createStore} from "redux";
 import {Provider} from "react-redux";
 
 const initialState = {
-    counterValue: 0,
+    users: [],
     posts: []
 }
 
 const reducer = (state =initialState,action)=>{
     switch(action.type) {
-        case 'INC': {
-            return {...state, counterValue: state.counterValue + 1}
+
+        case 'SET_USERS': {
+            return {...state, users: action.payload}
         }
         case 'SET_POSTS': {
             return {...state, posts: action.payload}
