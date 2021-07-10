@@ -1,0 +1,52 @@
+.CreateForm {
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    width: 310px;
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 5px;
+
+}
+input[type=text]:focus {
+    background-color: #f3f1f1;
+}
+input[placeholder] {
+    font-size: 18px;
+    font-family: Bahnschrift
+}
+form {
+    margin: 0 auto;
+}
+/*.title-header {*/
+/*    margin: 0 auto;*/
+/*    width: 310px;*/
+/*    height: 52px;*/
+/*    border-radius: 5px;*/
+/*    background: antiquewhite;*/
+/*    border: 1px solid gray;*/
+/*}*/
+h1 {
+
+    font-family: Bahnschrift;
+    color: #615c5a;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #666363;
+
+}
+
+button {
+    width: 310px;
+    height: 40px;
+    background: #08c27e;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    color: #282c34;
+    border-radius: 20px;
+    font-family: Bahnschrift
+}
