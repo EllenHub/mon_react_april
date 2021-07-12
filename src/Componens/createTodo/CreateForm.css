@@ -16,7 +16,7 @@ input[type=text]:focus {
 }
 input[placeholder] {
     font-size: 18px;
-    font-family: Bahnschrift
+    font-family: "Open Sans"
 }
 form {
     margin: 0 auto;
@@ -31,15 +31,16 @@ form {
 /*}*/
 h1 {
 
-    font-family: Bahnschrift;
+    font-family: "Open Sans";
     color: #615c5a;
     margin: 0;
     padding-bottom: 8px;
     border-bottom: 2px solid #666363;
+    margin-top: 15px;
 
 }
 
-button {
+.create-btn {
     width: 310px;
     height: 40px;
     background: #08c27e;
@@ -48,5 +49,5 @@ button {
     font-weight: bolder;
     color: #282c34;
     border-radius: 20px;
-    font-family: Bahnschrift
+    font-family: "Open Sans"
 }
