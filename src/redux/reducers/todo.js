@@ -8,7 +8,6 @@ const initialState = {
 }
 
 export const todosReducer =(state = initialState, action) => {
-    console.log(action);
     switch (action.type) {
         
         case ADD_TODOS: {
@@ -25,13 +24,13 @@ export const todosReducer =(state = initialState, action) => {
         }
 
         case 'DELETE_TODO': {
-            return {...state, todos: [...state.todos.filter(value => value.id !==action.payload)]}
+            return {...state, todos:[...state.todos.filter(value => value.id !==action.payload)]}
         }
         case 'COMPLETE_TODO': {
           const find = state.todos.find(val => val.id === action.id)
-         find.completed = !find.completed
+         find.completed = action.data.completed
 
-            return {...state, completed: find}
+            return {...state}
         }
         default:
             return state

@@ -10,7 +10,6 @@ import {PUSH_TODO} from "./redux/actionTypes";
 export default function App()  {
 
     const {todos, todosLoading} =useSelector(store => store.todosReducer)
-    console.log(todos);
     const dispatch = useDispatch()
 
     const fetchForm = async() => {
@@ -33,7 +32,6 @@ export default function App()  {
 
 const onTodoForm = async (title, description) => {
         if (!title || !description) return;
-        console.log(JSON.stringify({title, description}));
         
         const resp =await fetch('http://localhost:8888/create-todo', {
             method: 'POST',
@@ -56,17 +54,18 @@ const deleteTodo = async(id) => {
 }
 
 const completeTodo =async(id, completed) => {
+        console.log(id, completed);
         const resp = await fetch('http://localhost:8888/update-todo/'+ id, {
             method: 'PATCH',
-            body: JSON.stringify( {id,completed}),
+            body: JSON.stringify( {completed: !completed}),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
-     await resp.json()
-    console.log(resp);
-    dispatch({type: 'COMPLETE_TODO',id, completed})
+     const data = await resp.json()
+
+    dispatch({type: 'COMPLETE_TODO', id, data})
 
 }
     return (
